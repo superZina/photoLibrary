@@ -21,6 +21,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detail", sender: nil)
+    }
     @IBOutlet weak var photoView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
