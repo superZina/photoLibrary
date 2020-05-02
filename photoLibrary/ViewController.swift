@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import AXPhotoViewer
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
