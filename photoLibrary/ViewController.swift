@@ -8,9 +8,24 @@
 
 import UIKit
 import Photos
-import AXPhotoViewer
+import SwiftPhotoGallery
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,SwiftPhotoGalleryDataSource,SwiftPhotoGalleryDelegate{
+    let imageNames: [String] = ["농담곰","농담곰","농담곰"]
+    var index: Int = 0
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return self.imageNames.count
+    }
+    
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> UIImage? {
+        return UIImage(named: self.imageNames[forIndex])
+    }
+    
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+        dismiss(animated: true) {
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
@@ -23,7 +38,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detail", sender: nil)
+        index = indexPath.item
+        
+        let gallery = SwiftPhotoGallery(delegate: self, dataSource: self)
+        gallery.backgroundColor = UIColor.gray
+        gallery.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.5)
+        gallery.currentPageIndicatorTintColor = UIColor.white
+        gallery.hidePageControl = false
+        
+        present(gallery, animated: true, completion: { () -> Void in
+            gallery.currentPage = self.index
+        })
     }
     @IBOutlet weak var photoView: UICollectionView!
     override func viewDidLoad() {

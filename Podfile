@@ -7,5 +7,6 @@ target 'photoLibrary' do
 
   # Pods for photoLibrary
   pod 'AXPhotoViewer'
+  pod 'SwiftPhotoGallery'
 
 end
