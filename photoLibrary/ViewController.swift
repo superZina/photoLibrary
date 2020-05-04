@@ -9,10 +9,13 @@
 import UIKit
 import Photos
 import SwiftPhotoGallery
+import EmptyDataSet_Swift
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,SwiftPhotoGalleryDataSource,SwiftPhotoGalleryDelegate{
-    let imageNames: [String] = ["농담곰","농담곰","농담곰"]
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,SwiftPhotoGalleryDataSource,SwiftPhotoGalleryDelegate, EmptyDataSetSource ,EmptyDataSetDelegate{
+    let imageNames: [String] = []
     var index: Int = 0
+    
+    //SwiftPhotogGallery delegate , datasource
     func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
         return self.imageNames.count
     }
@@ -26,13 +29,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    // UICollectionView DataSource, Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return imageNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = photoView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? CollectionViewCell else {return CollectionViewCell()}
-        cell.photo.image = UIImage(named: "농담곰")
+        cell.photo.image = UIImage(named: self.imageNames[indexPath.row])
         return cell
     }
     
@@ -41,15 +45,38 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         index = indexPath.item
         
         let gallery = SwiftPhotoGallery(delegate: self, dataSource: self)
-        gallery.backgroundColor = UIColor.gray
+        gallery.backgroundColor = UIColor.black
         gallery.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.5)
-        gallery.currentPageIndicatorTintColor = UIColor.white
+        gallery.currentPageIndicatorTintColor = UIColor(red: 0.0, green: 0.66, blue: 0.875, alpha: 1.0)
         gallery.hidePageControl = false
+        gallery.modalPresentationStyle = .custom
         
         present(gallery, animated: true, completion: { () -> Void in
             gallery.currentPage = self.index
         })
     }
+    
+    //EmptyDataSet Delegate , DataSource
+    var titleString: NSAttributedString? {
+        var text:String? = "사진을 추가해주세요"
+        var font:UIFont = UIFont.boldSystemFont(ofSize: 18)
+        var textColor: UIColor? = UIColor.blue
+        var attributes: [NSAttributedString.Key: Any] = [:]
+        if font != nil { attributes[NSAttributedString.Key.font] = font}
+        if textColor != nil { attributes[NSAttributedString.Key.foregroundColor] = textColor}
+        return NSAttributedString.init(string: text!, attributes: attributes)
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return titleString
+    }
+    
+    
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+        return true
+    }
+    
+    
     @IBOutlet weak var photoView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +84,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.photoView.register(photoCellNib, forCellWithReuseIdentifier: "photoCell")
         self.photoView.delegate = self
         self.photoView.dataSource = self
+        self.photoView.emptyDataSetSource = self
+        self.photoView.emptyDataSetDelegate = self
         self.photoView.reloadData()
+        self.photoView.reloadEmptyDataSet()
     }
 
 

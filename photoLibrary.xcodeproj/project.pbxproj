@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		FF8FC37A2459BEF2002A39D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8FC3782459BEF2002A39D1 /* LaunchScreen.storyboard */; };
 		FF8FC3832459C067002A39D1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FC3812459C067002A39D1 /* CollectionViewCell.swift */; };
 		FF8FC3842459C067002A39D1 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8FC3822459C067002A39D1 /* CollectionViewCell.xib */; };
+		FF9277A42460588100EB7E70 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9277A32460588100EB7E70 /* CustomView.swift */; };
+		FF9277A624605A1000EB7E70 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9277A524605A1000EB7E70 /* CustomView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FF8FC37B2459BEF2002A39D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF8FC3812459C067002A39D1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FF8FC3822459C067002A39D1 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		FF9277A32460588100EB7E70 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		FF9277A524605A1000EB7E70 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,6 @@
 				15C5551B1BE8F13958A961E0 /* Pods-photoLibrary.debug.xcconfig */,
 				EC0B75FA6528E2227A3A583C /* Pods-photoLibrary.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,6 +96,8 @@
 				FF8FC3812459C067002A39D1 /* CollectionViewCell.swift */,
 				FF8FC3822459C067002A39D1 /* CollectionViewCell.xib */,
 				FF8FC3702459BEF2002A39D1 /* Main.storyboard */,
+				FF9277A32460588100EB7E70 /* CustomView.swift */,
+				FF9277A524605A1000EB7E70 /* CustomView.xib */,
 				FF8FC3762459BEF2002A39D1 /* Assets.xcassets */,
 				FF8FC3782459BEF2002A39D1 /* LaunchScreen.storyboard */,
 				FF8FC37B2459BEF2002A39D1 /* Info.plist */,
@@ -162,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8FC37A2459BEF2002A39D1 /* LaunchScreen.storyboard in Resources */,
+				FF9277A624605A1000EB7E70 /* CustomView.xib in Resources */,
 				FF8FC3772459BEF2002A39D1 /* Assets.xcassets in Resources */,
 				FF8FC3842459C067002A39D1 /* CollectionViewCell.xib in Resources */,
 				FF8FC3722459BEF2002A39D1 /* Main.storyboard in Resources */,
@@ -220,6 +226,7 @@
 				FF8FC3832459C067002A39D1 /* CollectionViewCell.swift in Sources */,
 				FF8FC3752459BEF2002A39D1 /* photoLibrary.xcdatamodeld in Sources */,
 				FF8FC36F2459BEF2002A39D1 /* ViewController.swift in Sources */,
+				FF9277A42460588100EB7E70 /* CustomView.swift in Sources */,
 				FF8FC36B2459BEF2002A39D1 /* AppDelegate.swift in Sources */,
 				FF8FC36D2459BEF2002A39D1 /* SceneDelegate.swift in Sources */,
 			);

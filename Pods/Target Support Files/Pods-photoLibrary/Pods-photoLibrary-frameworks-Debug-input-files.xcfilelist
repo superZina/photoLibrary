@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-photoLibrary/Pods-photoLibrary-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AXPhotoViewer/AXPhotoViewer.framework
 ${BUILT_PRODUCTS_DIR}/AXStateButton/AXStateButton.framework
+${BUILT_PRODUCTS_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework
 ${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
 ${BUILT_PRODUCTS_DIR}/SwiftPhotoGallery/SwiftPhotoGallery.framework

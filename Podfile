@@ -8,5 +8,6 @@ target 'photoLibrary' do
   # Pods for photoLibrary
   pod 'AXPhotoViewer'
   pod 'SwiftPhotoGallery'
+  pod 'EmptyDataSet-Swift','~> 5.0.0'
 
 end
