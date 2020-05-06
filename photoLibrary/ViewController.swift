@@ -66,16 +66,36 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if textColor != nil { attributes[NSAttributedString.Key.foregroundColor] = textColor}
         return NSAttributedString.init(string: text!, attributes: attributes)
     }
+    var buttonString: NSAttributedString? {
+        var text:String? = "사진 추가하러가기"
+        var font:UIFont = UIFont.boldSystemFont(ofSize: 18)
+        var textColor: UIColor? = UIColor.purple
+        var attributes: [NSAttributedString.Key: Any] = [:]
+        if font != nil { attributes[NSAttributedString.Key.font] = font}
+        if textColor != nil { attributes[NSAttributedString.Key.foregroundColor] = textColor}
+        return NSAttributedString.init(string: text!, attributes: attributes)
+    }
     
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return titleString
     }
     
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+        let image = UIImage(named: "농담곰")
+        return image
+    }
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControl.State) -> NSAttributedString? {
+        return buttonString
+    }
     
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
         return true
     }
-    
+
+    func emptyDataSet(_ scrollView: UIScrollView, didTapButton button: UIButton) {
+        performSegue(withIdentifier: "detail", sender: nil)
+        
+    }
     
     @IBOutlet weak var photoView: UICollectionView!
     override func viewDidLoad() {
