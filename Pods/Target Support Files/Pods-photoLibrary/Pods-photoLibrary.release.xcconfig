@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AXPhotoViewer" "${PODS_CONFIGURATION_BUILD_DIR}/AXStateButton" "${PODS_CONFIGURATION_BUILD_DIR}/EmptyDataSet-Swift" "${PODS_CONFIGURATION_BUILD_DIR}/FLAnimatedImage" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftPhotoGallery"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/EmptyDataSet-Swift" "${PODS_CONFIGURATION_BUILD_DIR}/Mantis" "${PODS_CONFIGURATION_BUILD_DIR}/PMSuperButton" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftPhotoGallery"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AXPhotoViewer/AXPhotoViewer.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/AXStateButton/AXStateButton.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FLAnimatedImage/FLAnimatedImage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftPhotoGallery/SwiftPhotoGallery.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/EmptyDataSet-Swift/EmptyDataSet_Swift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Mantis/Mantis.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/PMSuperButton/PMSuperButton.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftPhotoGallery/SwiftPhotoGallery.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "AXPhotoViewer" -framework "AXStateButton" -framework "CoreGraphics" -framework "EmptyDataSet_Swift" -framework "FLAnimatedImage" -framework "Foundation" -framework "ImageIO" -framework "MobileCoreServices" -framework "QuartzCore" -framework "SwiftPhotoGallery" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "EmptyDataSet_Swift" -framework "Foundation" -framework "Mantis" -framework "PMSuperButton" -framework "SwiftPhotoGallery" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

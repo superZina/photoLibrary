@@ -6,8 +6,8 @@ target 'photoLibrary' do
   use_frameworks!
 
   # Pods for photoLibrary
-  pod 'AXPhotoViewer'
   pod 'SwiftPhotoGallery'
   pod 'EmptyDataSet-Swift','~> 5.0.0'
-
+  pod 'Mantis', '~> 0.28'
+  pod 'PMSuperButton'
 end

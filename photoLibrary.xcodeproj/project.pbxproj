@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0F9627612159FB01A047D09 /* Pods_photoLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1769BBABB14D5B9AEB0792 /* Pods_photoLibrary.framework */; };
+		FF860E522463C289004D66F2 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF860E512463C289004D66F2 /* ViewController2.swift */; };
 		FF8FC36B2459BEF2002A39D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FC36A2459BEF2002A39D1 /* AppDelegate.swift */; };
 		FF8FC36D2459BEF2002A39D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FC36C2459BEF2002A39D1 /* SceneDelegate.swift */; };
 		FF8FC36F2459BEF2002A39D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8FC36E2459BEF2002A39D1 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		0D1769BBABB14D5B9AEB0792 /* Pods_photoLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_photoLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C5551B1BE8F13958A961E0 /* Pods-photoLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLibrary.debug.xcconfig"; path = "Target Support Files/Pods-photoLibrary/Pods-photoLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		EC0B75FA6528E2227A3A583C /* Pods-photoLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photoLibrary.release.xcconfig"; path = "Target Support Files/Pods-photoLibrary/Pods-photoLibrary.release.xcconfig"; sourceTree = "<group>"; };
+		FF860E512463C289004D66F2 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		FF8FC3672459BEF2002A39D1 /* photoLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photoLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8FC36A2459BEF2002A39D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8FC36C2459BEF2002A39D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				FF8FC36A2459BEF2002A39D1 /* AppDelegate.swift */,
 				FF8FC36C2459BEF2002A39D1 /* SceneDelegate.swift */,
 				FF8FC36E2459BEF2002A39D1 /* ViewController.swift */,
+				FF860E512463C289004D66F2 /* ViewController2.swift */,
 				FF8FC3812459C067002A39D1 /* CollectionViewCell.swift */,
 				FF8FC3822459C067002A39D1 /* CollectionViewCell.xib */,
 				FF8FC3702459BEF2002A39D1 /* Main.storyboard */,
@@ -229,6 +232,7 @@
 				FF8FC36F2459BEF2002A39D1 /* ViewController.swift in Sources */,
 				FF8FC36B2459BEF2002A39D1 /* AppDelegate.swift in Sources */,
 				FF8FC36D2459BEF2002A39D1 /* SceneDelegate.swift in Sources */,
+				FF860E522463C289004D66F2 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

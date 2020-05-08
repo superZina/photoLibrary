@@ -1,35 +1,28 @@
 PODS:
-  - AXPhotoViewer (1.7.1):
-    - AXPhotoViewer/Core (= 1.7.1)
-  - AXPhotoViewer/Core (1.7.1):
-    - AXStateButton (>= 1.1.3)
-    - FLAnimatedImage (>= 1.0.0)
-    - FLAnimatedImage-tvOS (>= 1.0.16)
-  - AXStateButton (1.1.4)
   - EmptyDataSet-Swift (5.0.0)
-  - FLAnimatedImage (1.0.12)
+  - Mantis (0.52)
+  - PMSuperButton (3.0.2)
   - SwiftPhotoGallery (3.4.1)
 
 DEPENDENCIES:
-  - AXPhotoViewer
   - EmptyDataSet-Swift (~> 5.0.0)
+  - Mantis (~> 0.28)
+  - PMSuperButton
   - SwiftPhotoGallery
 
 SPEC REPOS:
   trunk:
-    - AXPhotoViewer
-    - AXStateButton
     - EmptyDataSet-Swift
-    - FLAnimatedImage
+    - Mantis
+    - PMSuperButton
     - SwiftPhotoGallery
 
 SPEC CHECKSUMS:
-  AXPhotoViewer: f4b021c6e43b0b9dbc7b30cf8b9a4f577d0c1f51
-  AXStateButton: 6c515a433e37551505046429b5be04c12daa8c07
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Mantis: 0fb7056ad8fbe61e0c195b483d73591a06bcae09
+  PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
   SwiftPhotoGallery: 795b79e2596beb160fb978e232603da0811006ce
 
-PODFILE CHECKSUM: 3d593662e414343f5ef86f68a9a8c07e29e79c43
+PODFILE CHECKSUM: 6fa15b2b5501ca7fb32efb76eec160c29c246f5a
 
 COCOAPODS: 1.9.1

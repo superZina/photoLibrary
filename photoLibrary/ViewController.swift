@@ -7,36 +7,43 @@
 //
 
 import UIKit
-import Photos
 import SwiftPhotoGallery
 import EmptyDataSet_Swift
+import CoreData
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,SwiftPhotoGalleryDataSource,SwiftPhotoGalleryDelegate, EmptyDataSetSource ,EmptyDataSetDelegate{
-    let imageNames: [String] = []
+
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,SwiftPhotoGalleryDataSource,SwiftPhotoGalleryDelegate, EmptyDataSetSource ,EmptyDataSetDelegate,SaveImage{
+ 
+ 
+    var Photos: [NSManagedObject] = []
     var index: Int = 0
     
+    @IBAction func addPhoto(_ sender: Any) {
+        performSegue(withIdentifier: "detail", sender: nil)
+    }
     //SwiftPhotogGallery delegate , datasource
     func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
-        return self.imageNames.count
+        return self.Photos.count
     }
     
     func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> UIImage? {
-        return UIImage(named: self.imageNames[forIndex])
+
+        return UIImage(data: self.Photos[forIndex].value(forKey: "photo") as! Data)
     }
     
     func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
-        dismiss(animated: true) {
-        }
+        self.index = gallery.currentPage
+        dismiss(animated: true, completion: nil)
     }
     
     // UICollectionView DataSource, Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageNames.count
+        return Photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = photoView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? CollectionViewCell else {return CollectionViewCell()}
-        cell.photo.image = UIImage(named: self.imageNames[indexPath.row])
+        cell.photo.image = UIImage(data: self.Photos[indexPath.item].value(forKey: "photo") as! Data)
         return cell
     }
     
@@ -48,19 +55,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         gallery.backgroundColor = UIColor.black
         gallery.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.5)
         gallery.currentPageIndicatorTintColor = UIColor(red: 0.0, green: 0.66, blue: 0.875, alpha: 1.0)
-        gallery.hidePageControl = false
         gallery.modalPresentationStyle = .custom
         
         present(gallery, animated: true, completion: { () -> Void in
             gallery.currentPage = self.index
         })
+        
     }
+    
     
     //EmptyDataSet Delegate , DataSource
     var titleString: NSAttributedString? {
         var text:String? = "사진을 추가해주세요"
         var font:UIFont = UIFont.boldSystemFont(ofSize: 18)
-        var textColor: UIColor? = UIColor.blue
+        var textColor: UIColor? = UIColor.gray
         var attributes: [NSAttributedString.Key: Any] = [:]
         if font != nil { attributes[NSAttributedString.Key.font] = font}
         if textColor != nil { attributes[NSAttributedString.Key.foregroundColor] = textColor}
@@ -88,6 +96,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return buttonString
     }
     
+    
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
         return true
     }
@@ -96,6 +105,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         performSegue(withIdentifier: "detail", sender: nil)
         
     }
+    
+    
+    //saveImage Delegate
+    func save(data saveData: Data) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Photo", in: managedContext)!
+        
+        let photo = NSManagedObject(entity: entity, insertInto: managedContext)
+        photo.setValue(saveData ,forKey: "photo")
+        
+        do{
+            try managedContext.save()
+            self.Photos.append(photo)
+        }catch let error as NSError{
+            print("save error")
+        }
+    }
+    
     
     @IBOutlet weak var photoView: UICollectionView!
     override func viewDidLoad() {
@@ -108,8 +138,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.photoView.emptyDataSetDelegate = self
         self.photoView.reloadData()
         self.photoView.reloadEmptyDataSet()
+        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.photoView.reloadData()
+        print(Photos)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail"{
+            let destination = segue.destination as! ViewController2
+            destination.delegate = self
+        }
+    }
 
 }
 
